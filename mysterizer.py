@@ -117,10 +117,22 @@ else:
         selected = random.choice(all_labs)
         print(f"\n🎯 Random lab selected:\n{selected}")
 
-# === Step 3: Open in Chrome ===
+# === Step 3: Open in Chrome with fallback ===
 chrome_path = "C:/Program Files/Google/Chrome/Application/chrome.exe"
-if os.path.exists(chrome_path):
-    webbrowser.register("chrome", None, webbrowser.BackgroundBrowser(chrome_path))
-    webbrowser.get("chrome").open(selected, new=2)
-else:
-    print("Chrome not found at expected path.")
+
+try:
+    if os.path.exists(chrome_path):
+        webbrowser.register("chrome", None, webbrowser.BackgroundBrowser(chrome_path))
+        print("🚀 Attempting to open in Chrome...")
+        webbrowser.get("chrome").open(selected, new=2)
+    else:
+        raise FileNotFoundError("Chrome not found at expected path.")
+
+except Exception as e:
+    print(f"⚠️  Failed to open in Chrome: {e}")
+    print("🌐 Falling back to system default browser...")
+    try:
+        webbrowser.open(selected, new=2)
+        print("✅ Lab opened in default browser.")
+    except Exception as e2:
+        print(f"❌ Failed to open in system default browser: {e2}")
