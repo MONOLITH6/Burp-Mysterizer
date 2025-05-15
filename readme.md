@@ -1,6 +1,6 @@
 ## 🔀 PortSwigger Mystery Lab Randomizer
 
-This Python script fetches the **latest labs from PortSwigger Web Security Academy** and lets you **randomly select a challenge** to sharpen your offensive security skills.
+This Python script fetches the **latest labs from PortSwigger Web Security Academy** and lets you **randomly select a challenge** to sharpen your offensive web security skills.
 
 ### ✨ Features
 
@@ -37,7 +37,3 @@ Run the script and follow the interactive prompts to:
 1. Choose a lab source
 2. (Optional) Select a category
 3. Launch the lab in your browser of choice
-
----
-
-Let me know if you want a matching `README.md` or a badge-friendly header for your GitHub page.
